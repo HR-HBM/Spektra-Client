@@ -1,3 +1,5 @@
+// sample list only
+
 export const supportedCars = {
   makes: [
     'Acura', 'Audi', 'BMW', 'Buick', 'Cadillac', 'Chevrolet', 'Chrysler', 

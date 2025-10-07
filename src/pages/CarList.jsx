@@ -18,7 +18,11 @@ function CarList() {
       setLoading(true)
       
       try {
-        const response = await axios.get(`http://localhost:9000/carData?year=${year}&make=${make}&model=${model}`)
+
+        const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
+
+
+        const response = await axios.get(`${API_BASE_URL}/carData?year=${year}&make=${make}&model=${model}`)
         setResults(response.data)
         
         // Save to localStorage for dashboard
