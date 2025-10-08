@@ -1,0 +1,56 @@
+main-div {
+    padding: 20px;
+}
+
+.sub-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboard-button {
+    padding: 8px 16px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+car-detail-div {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+}
+
+car-detail-button {
+    padding: 12px 24px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+saved-searches-div {
+    display: grid;
+    grid-template-columns: repeat(autofill), minmax(300px, 1fr);
+    gap: 20px;
+}
+
+.saved-searched-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #f9f9f9;
+}
+
+.view-details-button {
+    padding: 8px 16px;
+    background-color: #2c5aa0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
