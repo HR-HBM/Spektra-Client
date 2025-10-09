@@ -8,6 +8,17 @@
     margin-bottom: 15px;
 }
 
+.auth-options {
+    display: flex;
+}
+
+.auth-options button {
+    width: 50%;
+    border: none;
+    padding: 10px;
+    color: rgb(35, 38, 47);
+}
+
 .authentication-form input {
     width: 100%;
     padding: 10px;

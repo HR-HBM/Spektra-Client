@@ -26,7 +26,7 @@ function Navbar() {
           <Link className="nav-link" to="/dashboard">Dashboard</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/auth">Logout</Link>
+          <Link className="nav-link" to="/">Logout</Link>
         </li>
       </ul>
     </div>
