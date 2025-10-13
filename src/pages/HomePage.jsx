@@ -4,6 +4,7 @@ import './HomePage.css'
 
 
 function HomePage() {
+    
     return (
         <div>
             <p>Add description about what the app can do</p>

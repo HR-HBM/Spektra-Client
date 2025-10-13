@@ -1,8 +1,17 @@
 import React from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import useToken from '../useToken'
+
 
 function Navbar() {
   const location = useLocation()
+  const { removeToken } = useToken()
+  const navigate = useNavigate()
+
+  const handleLogout = () => {
+    removeToken()
+    navigate('/')
+  }
 
   
   return (
@@ -26,7 +35,7 @@ function Navbar() {
           <Link className="nav-link" to="/dashboard">Dashboard</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/">Logout</Link>
+          <Link className="nav-link" onClick={handleLogout}>Logout</Link>
         </li>
       </ul>
     </div>

@@ -1,9 +1,28 @@
-import React, { useState } from 'react'
+import React, { useState, useContext, createContext } from 'react'
 import { useNavigate } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import './AuthPage.css'
 
 
-function AuthPage() {
+
+async function loginUser(credentials) {
+
+
+    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL            
+    
+     return fetch(`${API_BASE_URL}/login`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(credentials)
+    })
+
+   .then(data => data.json())
+}
+
+
+function AuthPage({ setToken }) {
     const [isLogin, setIsLogin] = useState(true)
     const [email, setEmail] = useState('')
     const [username, setUsername] = useState('')
@@ -20,20 +39,29 @@ function AuthPage() {
   }
 
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
+
         // authentication logic goes here
         // ****** add localstorage to save user details and clear details on logout
-         if (!isLogin && password !== confirmPassword) {
+        if (!isLogin && password !== confirmPassword) {
             setError('Make sure passwords match!')
             return
-            }
+        }
+
+        const token = await loginUser({
+            email,
+            password
+        })
+        setToken(token)
+        navigate('/homepage')
+
+    }
 
         console.log(isLogin ? 'Logging in....' : 'Signing Up.....', {email, password})
 
         // temporary access to search page
-        navigate('/homepage')
-    }
+    
 
     return (
         <div className='main-container'>
@@ -41,7 +69,18 @@ function AuthPage() {
             <form action="" onSubmit={handleSubmit} className=''>
 
                 {!isLogin && (
-                  <div className='authentication-form'>{!isLogin}
+
+                    <div className='authentication-form'>
+                    <input type="name"
+                    placeholder='username'
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    required
+                     />
+                    </div>
+                )}
+
+                <div className='authentication-form'>
                     <input type="email"
                     placeholder='Email'
                     value={email}
@@ -49,9 +88,8 @@ function AuthPage() {
                     required
                      />
                 </div>  
-                )}
 
-
+{/* 
                 <div className='authentication-form'>
                     <input type="name"
                     placeholder='username'
@@ -59,7 +97,7 @@ function AuthPage() {
                     onChange={(e) => setUsername(e.target.value)}
                     required
                      />
-                </div>
+                </div> */}
 
                 <div className='authentication-form'>
                     <input type='password'
@@ -118,6 +156,10 @@ function AuthPage() {
 
         </div>
     )
+}
+
+AuthPage.propTypes = {
+  setToken: PropTypes.func.isRequired
 }
 
 export default AuthPage
