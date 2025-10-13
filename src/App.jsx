@@ -18,7 +18,9 @@ function AppContent() {
   const hideNavBarPaths = ['/', '/auth']
   const { token, setToken } = useToken()
 
-  if(!token) {
+  const storedToken = localStorage.getItem('token');
+
+  if(!storedToken) {
     return (
       <Routes>
         <Route path="/" element={<LandingPage setToken={setToken} />} />

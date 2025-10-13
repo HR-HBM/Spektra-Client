@@ -10,6 +10,7 @@ function Navbar() {
 
   const handleLogout = () => {
     removeToken()
+    // setTimeout(() => navigate('/'), 0)
     navigate('/')
   }
 
@@ -28,6 +29,10 @@ function Navbar() {
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
     
+        
+        <li className="nav-item">
+          <Link className="nav-link" to="/homepage">Home</Link>
+        </li>
         <li className="nav-item">
           <Link className="nav-link" to="/search">Search Cars</Link>
         </li>
@@ -35,7 +40,8 @@ function Navbar() {
           <Link className="nav-link" to="/dashboard">Dashboard</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" onClick={handleLogout}>Logout</Link>
+          <button className="nav-link btn btn-link" onClick={handleLogout}>Logout</button>
+          {/* <Link className="nav-link" onClick={handleLogout}>Logout</Link> */}
         </li>
       </ul>
     </div>
