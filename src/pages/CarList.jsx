@@ -65,17 +65,10 @@ function CarList() {
 
   if (error) {
     return (
-      <div style={{ padding: '20px', textAlign: 'center' }}>
+      <div className='error-container'>
         <h2>Error</h2>
-        <p style={{ color: 'red' }}>{error}</p>
-        <button onClick={goBackToSearch} style={{ 
-          padding: '12px 24px', 
-          backgroundColor: '#6c757d', 
-          color: 'white',
-          border: 'none',
-          borderRadius: '5px',
-          cursor: 'pointer'
-        }}>
+        <p className='error-paragraph'>{error}</p>
+        <button className='back-to-search-button' onClick={goBackToSearch}>
           Back to Search
         </button>
       </div>
@@ -83,100 +76,56 @@ function CarList() {
   }
 
   return (
-    <div style={{ padding: '20px' }}>
-      <div style={{ marginBottom: '20px' }}>
-        <button onClick={goBackToSearch} style={{ 
-          padding: '8px 16px', 
-          backgroundColor: '#6c757d', 
-          color: 'white',
-          border: 'none',
-          borderRadius: '5px',
-          cursor: 'pointer',
-          marginRight: '15px'
-        }}>
+    <div className='main-div'>
+      <div className='sub-div'>
+        <button className='search-button' onClick={goBackToSearch}>
           ← Back to Search
         </button>
         
-        <h2 style={{ display: 'inline', color: '#2c5aa0' }}>
+        <h2 className='car-heading'>
           {year} {make.charAt(0).toUpperCase() + make.slice(1)} {model.charAt(0).toUpperCase() + model.slice(1)}
         </h2>
       </div>
 
       {results.length === 0 ? (
-        <div style={{ textAlign: 'center', padding: '40px' }}>
+        <div className='no-results-div'>
           <h3>No Results Found</h3>
           <p>Sorry, we couldn't find any trims for {year} {make} {model}.</p>
-          <p>Try adjusting your search parameters.</p>
+          <p>Try searching for a different make, model or production year</p>
         </div>
       ) : (
         <div>
-          <h3 style={{ marginBottom: '20px' }}>
+          <h3 className='number-of-trims'>
             Found {results.length} trim{results.length !== 1 ? 's' : ''} available
           </h3>
           
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))', 
-            gap: '20px' 
-          }}>
+          <div className='trim-grid'>
             {results.map((car, index) => (
-              <div key={index} style={{
-                border: '1px solid #ddd',
-                borderRadius: '8px',
-                padding: '20px',
-                backgroundColor: '#f9f9f9',
-                boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-                transition: 'transform 0.2s ease, box-shadow 0.2s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-2px)'
-                e.currentTarget.style.boxShadow = '0 4px 8px rgba(0,0,0,0.15)'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)'
-                e.currentTarget.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)'
-              }}>
+              <div className='grid-item' key={index}>
                 
-                <h4 style={{ 
-                  color: '#2c5aa0', 
-                  marginBottom: '15px',
-                  borderBottom: '1px solid #ddd',
-                  paddingBottom: '10px'
-                }}>
+                <h4 className='trim-subheading'>
                   {car.model_trim}
                 </h4>
                 
-                <div style={{ marginBottom: '15px' }}>
-                  <p style={{ margin: '5px 0' }}>
+                <div className='specs-preview-container'>
+                  <p className='previewed-spec-item'>
                     <strong>Engine:</strong> {car.model_engine_cc}cc {car.model_engine_cyl}-cylinder {car.model_engine_type}
                   </p>
-                  <p style={{ margin: '5px 0' }}>
+                  <p className='previewed-spec-item'>
                     <strong>Power:</strong> {car.model_engine_power_ps} PS
                   </p>
-                  <p style={{ margin: '5px 0' }}>
+                  <p className='previewed-spec-item'>
                     <strong>Body Type:</strong> {car.model_body}
                   </p>
-                  <p style={{ margin: '5px 0' }}>
+                  <p className='previewed-spec-item'>
                     <strong>Transmission:</strong> {car.model_transmission_type}
                   </p>
-                  <p style={{ margin: '5px 0' }}>
+                  <p className='previewed-spec-item'>
                     <strong>Drive Type:</strong> {car.model_drive}
                   </p>
                 </div>
                 
-                <button onClick={() => viewCarDetails(car)} style={{ 
-                  padding: '10px 20px', 
-                  backgroundColor: '#2c5aa0', 
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '5px',
-                  cursor: 'pointer',
-                  width: '100%',
-                  fontSize: '16px',
-                  transition: 'background-color 0.2s ease'
-                }}
-                onMouseEnter={(e) => e.target.style.backgroundColor = '#1e3d6f'}
-                onMouseLeave={(e) => e.target.style.backgroundColor = '#2c5aa0'}>
+                <button className='full-spec-button' onClick={() => viewCarDetails(car)}>
                   View Full Specifications
                 </button>
               </div>

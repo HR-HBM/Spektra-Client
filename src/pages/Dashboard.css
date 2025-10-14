@@ -17,13 +17,13 @@ main-div {
     cursor: pointer;
 }
 
-car-detail-div {
+.car-detail-div {
     text-align: center;
     padding: 40px;
     color: #666;
 }
 
-car-detail-button {
+.car-detail-button {
     padding: 12px 24px;
     background-color: #28a745;
     color: white;
@@ -32,7 +32,7 @@ car-detail-button {
     cursor: pointer;
 }
 
-saved-searches-div {
+.saved-searches-div {
     display: grid;
     grid-template-columns: repeat(autofill), minmax(300px, 1fr);
     gap: 20px;

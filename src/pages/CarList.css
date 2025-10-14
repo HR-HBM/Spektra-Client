@@ -1,0 +1,101 @@
+.error-container {
+    padding: 20px;
+    text-align: center;
+}
+
+.error-paragraph {
+    color: red;
+}
+
+.back-to-search-button {
+    padding: 12px 24px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.main-div {
+    padding: 20px;
+}
+
+.sub-div {
+    margin-bottom: 20px;
+}
+
+.search-button {
+    padding: 8px 16px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 15px;   
+}
+
+.car-heading {
+    display: inline;
+    color: #2c5aa0;
+}
+
+.no-results-div {
+    text-align: center;
+    padding: 40px;   
+}
+ 
+.number-of-trims {
+    margin-bottom: 20px;
+}
+
+.trim-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.grid-item {
+    border: solid 1px #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.grid-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.trim-subheading {
+    color: #2c5aa0;
+    margin-bottom: 15px;
+    border-bottom: solid 1px #ddd;
+    padding-bottom: 10px;
+}
+
+.specs-preview-container {
+    margin-bottom: 15px;
+}
+
+.previewed-spec-item {
+    margin: 5px 0;
+}
+
+.full-spec-button {
+    padding: 10px 20px;
+    background-color: #2c5aa0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    transition: background-color 0.2s ease;
+}
+
+.full-spec-button:hover {
+    background-color = #1e3d6f;
+
+}
