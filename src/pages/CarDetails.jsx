@@ -1,7 +1,8 @@
 import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import './CarDetails.css'
-
+import html2canvas from 'html2canvas'
+import jsPDF from 'jspdf'
 
 
 function CarDetails() {
@@ -35,13 +36,47 @@ function CarDetails() {
     return value
   }
 
+
+  const handleDownloadPDF = () => {
+    const input = document.getElementById('pdf-content')
+    html2canvas(input, { scale: 2 }).then((canvas) => {
+      const imgData = canvas.toDataURL('image/png')
+      const pdf = new jsPDF('p', 'mm', 'a4')
+      const imgWidth = 210
+      const pageHeight = 295
+      const imgHeight = (canvas.height * imgWidth) / canvas.width
+      let heightLeft = imgHeight
+      let position = 0
+
+      pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight)
+      heightLeft -= pageHeight
+
+      while (heightLeft >= 0) {
+        position = heightLeft - imgHeight
+        pdf.addPage()
+        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight)
+        heightLeft -= pageHeight
+      }
+
+      pdf.save(`${car.model_name || 'car'}-details.pdf`)
+    })
+  }
+
   return (
     <div style={{ padding: '20px' }}>
       <button className='prev-page-navigator' onClick={() => navigate(-1)}>
         ← Back
       </button>
 
-      <div className='brief-car-specs'>
+      <button 
+        onClick={handleDownloadPDF} 
+        className='download-pdf-btn' 
+        style={{ marginLeft: '10px', backgroundColor: '#007bff', color: '#fff', border: 'none', padding: '8px 12px', borderRadius: '5px', cursor: 'pointer' }}
+      >
+        ⬇️ Download PDF
+      </button>
+
+      <div className='brief-car-specs' id='pdf-content'>
         <h1 className='trim-subheading'>
           {car.model_trim}
         </h1>
