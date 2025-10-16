@@ -58,12 +58,13 @@ function CarDetails() {
         heightLeft -= pageHeight
       }
 
-      pdf.save(`${car.model_name || 'car'}-details.pdf`)
+      pdf.save(`${car.model_trim || 'car'}-details.pdf`)
     })
   }
 
   return (
     <div style={{ padding: '20px' }}>
+
       <button className='prev-page-navigator' onClick={() => navigate(-1)}>
         ← Back
       </button>
@@ -75,6 +76,9 @@ function CarDetails() {
       >
         ⬇️ Download PDF
       </button>
+
+      <a href={`https://www.google.com/search?q=${car.model_trim}&tbm=isch`}>View {car.model_name} Trim</a>
+
 
       <div className='brief-car-specs' id='pdf-content'>
         <h1 className='trim-subheading'>
