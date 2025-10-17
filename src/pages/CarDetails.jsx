@@ -42,23 +42,27 @@ function CarDetails() {
     html2canvas(input, { scale: 2 }).then((canvas) => {
       const imgData = canvas.toDataURL('image/png')
       const pdf = new jsPDF('p', 'mm', 'a4')
-      const imgWidth = 210
+      const pageWidth = 210
       const pageHeight = 295
+
+      const margin = 15
+      const imgWidth = pageWidth - margin*2
+
       const imgHeight = (canvas.height * imgWidth) / canvas.width
       let heightLeft = imgHeight
-      let position = 0
+      let position = margin
 
-      pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight)
-      heightLeft -= pageHeight
+      pdf.addImage(imgData, 'PNG', margin, position, imgWidth, imgHeight)
+      heightLeft -= pageHeight - margin*2
 
-      while (heightLeft >= 0) {
-        position = heightLeft - imgHeight
+      while (heightLeft > 0) {
+        position = heightLeft - imgHeight + margin
         pdf.addPage()
-        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight)
-        heightLeft -= pageHeight
+        pdf.addImage(imgData, 'PNG', margin, position, imgWidth, imgHeight)
+        heightLeft -= pageHeight - margin*2
       }
 
-      pdf.save(`${car.model_trim || 'car'}-details.pdf`)
+      pdf.save(`${car.model_year} ${car.model_make_id} ${car.model_name} ${car.model_trim || 'car'}-details.pdf`)
     })
   }
 

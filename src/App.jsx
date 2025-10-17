@@ -8,7 +8,7 @@ import CarList from './pages/CarList'
 import Dashboard from './pages/Dashboard'
 import CarDetails from './pages/CarDetails'
 import SearchPage from './pages/SearchPage'
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import useToken from './useToken'
 
@@ -25,6 +25,7 @@ function AppContent() {
       <Routes>
         <Route path="/" element={<LandingPage setToken={setToken} />} />
         <Route path="/auth" element={<AuthPage setToken={setToken} />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     ) 
   }
@@ -33,7 +34,7 @@ function AppContent() {
       <div className="App">
         {!hideNavBarPaths.includes(location.pathname) && <Navbar />}
         <Routes>
-          <Route path="/" element={token ? <HomePage /> : <LandingPage setToken={setToken} />} />
+          <Route path="/" element={<Navigate to="/homepage" replace />} />
           <Route path="/auth" element={<AuthPage setToken={setToken}/>} />
           <Route path="/search" element={<SearchPage />} />
           <Route path="/search-results/:year/:make/:model" element={<CarList />} />
