@@ -36,6 +36,10 @@ function CarDetails() {
     return value
   }
 
+  const pageHeading = `${car.model_year} ${car.model_trim}`
+  const imageSearch = `${car.model_year} ${car.model_make_id} ${car.model_name}`
+
+
 
   const handleDownloadPDF = () => {
     const input = document.getElementById('pdf-content')
@@ -81,12 +85,12 @@ function CarDetails() {
         ⬇️ Download PDF
       </button>
 
-      <a href={`https://www.google.com/search?q=${car.model_trim}&tbm=isch`}>View {car.model_name} Trim</a>
+      <a href={`https://www.google.com/search?q=${imageSearch}&tbm=isch`}>View {imageSearch}</a>
 
 
       <div className='brief-car-specs' id='pdf-content'>
         <h1 className='trim-subheading'>
-          {car.model_trim}
+          {pageHeading}
         </h1>
         
         <div className='specs-grid'>

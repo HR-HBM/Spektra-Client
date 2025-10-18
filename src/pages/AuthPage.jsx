@@ -5,12 +5,12 @@ import './AuthPage.css'
 
 
 
-async function loginUser(credentials) {
+async function loginUser(credentials, endpoint) {
 
 
     const API_BASE_URL = import.meta.env.VITE_API_BASE_URL            
     
-     return fetch(`${API_BASE_URL}/login`, {
+     return fetch(`${API_BASE_URL}/${endpoint}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -42,25 +42,29 @@ function AuthPage({ setToken }) {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        // authentication logic goes here
-        // ****** add localstorage to save user details and clear details on logout
         if (!isLogin && password !== confirmPassword) {
             setError('Make sure passwords match!')
             return
         }
 
-        const token = await loginUser({
-            email,
-            password
-        })
-        setToken(token)
+        const endpoint = isLogin ? 'login' : 'signup'
+
+        const payload = isLogin ? { email, password } : { email, password, username };
+
+
+
+        const data = await loginUser(payload, endpoint);
+        if (data.detail) {
+            setError(data.detail); 
+            return;
+        }
+        
+        setToken(data.token)
         navigate('/homepage')
 
     }
 
-        console.log(isLogin ? 'Logging in....' : 'Signing Up.....', {email, password})
-
-        // temporary access to search page
+        console.log(isLogin ? 'Logging in....' : 'Signing Up.....', {email, password, username})
     
 
     return (
@@ -88,16 +92,6 @@ function AuthPage({ setToken }) {
                     required
                      />
                 </div>  
-
-{/* 
-                <div className='authentication-form'>
-                    <input type="name"
-                    placeholder='username'
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    required
-                     />
-                </div> */}
 
                 <div className='authentication-form'>
                     <input type='password'
@@ -133,12 +127,6 @@ function AuthPage({ setToken }) {
             <button onClick={() => viewLogin(true)} style={{ backgroundColor : isLogin ? 'rgb(255, 255, 255)' : 'rgb(188, 188, 188)' }}>Login</button> 
           </div>
 
-            {/* <p className='authentication-options'>
-                {isLogin ? "Don't have and account? " : "Already have an account? "}
-                <button className='options' onClick={() => setIsLogin(!isLogin)}>
-                    {isLogin ? 'Sign Up' : 'Login'}
-                </button>
-            </p> */}
 
             <div className="oAuth-div">
             <div className="option-title">
