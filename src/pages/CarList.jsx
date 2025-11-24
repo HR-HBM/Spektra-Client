@@ -1,9 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
-
-// src/pages/SearchResultsPage.jsx
-
 
 function CarList() {
   const [results, setResults] = useState([])
@@ -12,28 +9,71 @@ function CarList() {
   const location = useLocation()
   const navigate = useNavigate()
   const { year, make, model } = useParams()
+  const hasSaved = useRef(false)
 
   useEffect(() => {
+
     const fetchResults = async () => {
+      if (location.state?.cachedResults) {
+        setResults(location.state.cachedResults);
+        setLoading(false);
+        return;
+      }
+
       setLoading(true)
       
       try {
-
         const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
+        const token = JSON.parse(localStorage.getItem("token"))?.token;
 
 
-        const response = await axios.get(`${API_BASE_URL}/carData?year=${year}&make=${make}&model=${model}`)
-        setResults(response.data)
+        // Fetch car data from external API
+        const response = await axios.get(
+          `${API_BASE_URL}/carData?year=${year}&make=${make}&model=${model}`
+        )
         
-        // Save to localStorage for dashboard
-        const savedSearches = JSON.parse(localStorage.getItem('carSearches') || '[]')
-        savedSearches.push({
-          id: Date.now(),
-          searchParams: { year, make, model },
-          results: response.data,
-          timestamp: new Date().toISOString()
-        })
-        localStorage.setItem('carSearches', JSON.stringify(savedSearches))
+        setResults(response.data)
+
+        // Prevent duplicate saves
+        if (hasSaved.current) {
+          setLoading(false);
+          return;
+        }
+        hasSaved.current = true;
+        
+        // Get search term and query_id 
+        const searchTerm = location.state?.searchTerm;
+        const query_id = location.state?.query_id;
+        
+        if (!searchTerm || !query_id) {
+          console.error("Missing searchTerm or query_id from navigation state");
+          setLoading(false);
+          return;
+        }
+
+
+        let dataToSave;
+        if (!response.data || response.data.length === 0) {
+          dataToSave = "Information for this car was not available";
+        } else {
+          dataToSave = JSON.stringify(response.data);
+        }
+
+        // Save to database
+        await axios.post(
+          `${API_BASE_URL}/api-data`,
+          {
+            query_id: query_id,
+            search_term: searchTerm,
+            fetched_data: dataToSave,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
         
       } catch (error) {
         console.error('Search failed:', error)
@@ -44,7 +84,7 @@ function CarList() {
     }
 
     fetchResults()
-  }, [year, make, model])
+  }, [year, make, model, location.state])
 
   const viewCarDetails = (car) => {
     navigate(`/car-details/${car.model_id}`, { state: { car } })

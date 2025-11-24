@@ -58,14 +58,16 @@ function AuthPage({ setToken }) {
             setError(data.detail); 
             return;
         }
+
+
+        // Save token and email
+        const userObj = { token: data.token, email: data.email };
+        localStorage.setItem('token', JSON.stringify(userObj));
         
-        setToken(data.token)
+        setToken(userObj);
         navigate('/homepage')
 
-    }
-
-        console.log(isLogin ? 'Logging in....' : 'Signing Up.....', {email, password, username})
-    
+    }    
 
     return (
         <div className='main-container'>
