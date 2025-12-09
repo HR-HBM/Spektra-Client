@@ -23,7 +23,7 @@ function AppContent() {
 
   if(!storedToken) {
     return (
-      <div>
+      <div className='main-div'>
         <Routes>
         <Route path="/" element={<LandingPage setToken={setToken} />} />
         <Route path="/auth" element={<AuthPage setToken={setToken} />} />
