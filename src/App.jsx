@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './App.css'
 import axios from 'axios'
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 import LandingPage from './pages/LandingPage'
 import AuthPage from './pages/AuthPage'
 import CarList from './pages/CarList'
@@ -22,11 +23,16 @@ function AppContent() {
 
   if(!storedToken) {
     return (
-      <Routes>
+      <div>
+        <Routes>
         <Route path="/" element={<LandingPage setToken={setToken} />} />
         <Route path="/auth" element={<AuthPage setToken={setToken} />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
+      <Footer />
+
+      </div>
+      
     ) 
   }
 
@@ -42,6 +48,8 @@ function AppContent() {
           <Route path="/car-details/:id" element={<CarDetails />} />
           <Route path="/homepage" element={<HomePage />}></Route>
         </Routes>
+        <Footer />
+
       </div>
     
   )
