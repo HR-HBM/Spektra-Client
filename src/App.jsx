@@ -24,11 +24,13 @@ function AppContent() {
   if(!storedToken) {
     return (
       <div className='main-div'>
+            <div className="content">
         <Routes>
         <Route path="/" element={<LandingPage setToken={setToken} />} />
         <Route path="/auth" element={<AuthPage setToken={setToken} />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
+      </div>
       <Footer />
 
       </div>
@@ -39,6 +41,8 @@ function AppContent() {
   return (    
       <div className="App">
         {!hideNavBarPaths.includes(location.pathname) && <Navbar />}
+            <div className="content">
+
         <Routes>
           <Route path="/" element={<Navigate to="/homepage" replace />} />
           <Route path="/auth" element={<AuthPage setToken={setToken}/>} />
@@ -48,6 +52,7 @@ function AppContent() {
           <Route path="/car-details/:id" element={<CarDetails />} />
           <Route path="/homepage" element={<HomePage />}></Route>
         </Routes>
+        </div>
         <Footer />
 
       </div>

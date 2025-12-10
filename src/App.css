@@ -27,8 +27,28 @@ body {
   font-family: "Poppins", "Roboto", sans-serif;
 }
 
-/* Headings use Poppins */
 h1, h2, h3, h4, h5, h6,
 .heading {
   font-family: "Poppins", sans-serif !important;
 }
+
+.main-div {
+  height: 100vh;
+}
+
+.App,
+.main-div {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;   
+}
+
+.App > Routes,
+.main-div > Routes {
+  flex: 1;
+}
+
+.content {
+  flex: 1;  
+}
+
