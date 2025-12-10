@@ -15,33 +15,40 @@ function Navbar() {
     navigate('/')
   }
 
+  const closeNavbar = () => {
+  const navbar = document.getElementById('navbarSupportedContent')
+  if (navbar && navbar.classList.contains('show')) {
+    new window.bootstrap.Collapse(navbar).hide()
+  }
+}
+
+
   
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-sm bg-body-tertiary">
   <div className="container-fluid">
-    <Link className="navbar-brand" to="/homepage">
-    <img src="/images/logo.png" alt="spektra-logo" className='logo'  />
-    Spektra
+    <Link className="navbar-brand" to="/homepage" >
+    <img src="/images/logo.png" alt="spektra-logo" className='navbar-logo'  />
     </Link>
-    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button className="navbar-toggler d-block d-sm-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
      
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
     
         
         <li className="nav-item">
-          <Link className="nav-link" to="/homepage">Home</Link>
+          <Link className="nav-link" to="/homepage" onClick={closeNavbar}>Home</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/search">Search Cars</Link>
+          <Link className="nav-link" to="/search" onClick={closeNavbar}>Search Cars</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/dashboard">Dashboard</Link>
+          <Link className="nav-link" to="/dashboard" onClick={closeNavbar}>Dashboard</Link>
         </li>
         <li className="nav-item">
-          <button className="nav-link btn btn-link" onClick={handleLogout}>Logout</button>
+          <Link className="nav-link btn btn-link" onClick={handleLogout}>Logout</Link>
           {/* <Link className="nav-link" onClick={handleLogout}>Logout</Link> */}
         </li>
       </ul>

@@ -38,6 +38,8 @@ function HomePage() {
 
     
     return (
+      <div className="page-content">
+
         <div className="homepage-container">
       <h1>Welcome to the Car Lookup App</h1>
 
@@ -61,6 +63,7 @@ function HomePage() {
       <Link to="/dashboard" className="homepage-dashboard-link">
         View your previous searches
       </Link>
+    </div>
     </div>
     );
 }

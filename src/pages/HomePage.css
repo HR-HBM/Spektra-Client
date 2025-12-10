@@ -1,0 +1,6 @@
+@media (min-width: 500px) {
+  .page-content {
+    margin-left: 250px; /* same as sidebar width */
+    padding: 1rem;
+  }
+}

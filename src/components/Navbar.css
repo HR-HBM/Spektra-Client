@@ -1,4 +1,61 @@
-img {
+.navbar-logo {
     height: 50px;
     width: auto;
+    /* position: relative;
+    left: 10%; */
+}
+
+@media (min-width: 500px) {
+  .navbar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 1rem;
+  }
+
+  .navbar .container-fluid {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-collapse {
+    flex-direction: column;
+  }
+
+  .navbar-nav {
+    flex-direction: column !important;
+    width: 100%;
+  }
+
+  .navbar-brand {
+    margin-left: 0.5rem;
+  }
+
+  .navbar-toggler {
+    display: none !important;
+  }
+}
+
+
+@media (max-width: 499px) {
+  .navbar {
+    width: 100%;
+    height: auto;
+    flex-direction: row !important;
+  }
+  
+
+  .navbar-toggler {
+    display: block !important;
+  }
+
+  .navbar .container-fluid {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
