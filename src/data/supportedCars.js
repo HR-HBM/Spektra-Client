@@ -1,13 +1,14 @@
-// sample list only
 
 export const supportedCars = {
-  makes: [
-    'Acura', 'Audi', 'BMW', 'Buick', 'Cadillac', 'Chevrolet', 'Chrysler', 
-    'Dodge', 'Ford', 'Genesis', 'GMC', 'Honda', 'Hyundai', 'Infiniti', 
-    'Jaguar', 'Jeep', 'Kia', 'Land Rover', 'Lexus', 'Lincoln', 'Mazda', 
-    'Mercedes-Benz', 'Mitsubishi', 'Nissan', 'Porsche', 'Ram', 'Subaru', 
-    'Tesla', 'Toyota', 'Volkswagen', 'Volvo'
-  ],
+  makes: [ 'Alfa Romeo', 'Aston Martin', 'Audi',
+ 'Bentley', 'BMW', 'Bugatti', 'Buick', 'Cadillac', 'Chevrolet', 'Citroen', 
+ 'Dodge', 'Ferrari', 'Fiat', 'Ford', 'GMC', 'Honda', 'Hyundai', 'Infiniti', 
+ 'Jaguar', 'Jeep', 'Kia', 'Koenigsegg', 'Lamborghini', 'Land Rover', 'Lexus', 
+ 'Lincoln', 'Maserati', 'Mazda', 'McLaren', 'Mercedes-Benz', 'Mini', 'Mitsubishi', 
+ 'Nissan', 'Opel', 'Pagani', 'Peugeot', 'Porsche', 'RAM', 'Renault', 'Rimac', 
+ 'Rolls-Royce', 'Saab', 'Seat', 'Skoda', 'Subaru', 'Suzuki', 'Tesla', 'Toyota', 
+ 'Unassigned', 'Volkswagen', 'Volvo', '(blank)'
+ ],
   
   models: {
     'Toyota': ['Camry', 'Corolla', 'Prius', 'RAV4', 'Highlander', 'Sienna', 'Tacoma', 'Tundra', '4Runner', 'Sequoia', 'Avalon', 'Yaris'],

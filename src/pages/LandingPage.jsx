@@ -2,11 +2,25 @@ import React from "react"
 import { Link } from 'react-router-dom'
 import './LandingPage.css'
 import TypewriterEffect from "../components/TypewriterEffect";
-
+import { useEffect } from "react";
+import * as bootstrap from "bootstrap";
 
 
 
 function LandingPage() {
+
+    useEffect(() => {
+        const carouselElement = document.querySelector("#carouselExampleAutoplaying");
+
+        if (carouselElement) {
+            new bootstrap.Carousel(carouselElement, {
+            interval: 3000,   // 3 seconds
+            ride: "carousel",
+            pause: false,
+            wrap: true
+            });
+        }
+        }, []);
 
     return (
         <div className="landingpage-main-div">

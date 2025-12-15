@@ -14,12 +14,12 @@
 }
 
 
-.p-lg-5 {
+/* .p-lg-5 {
     padding: 3vh !important;
-}
+} */
 
 .form-control-lg {
-    font-size: 1.5vh;
+    font-size: 1.5rem;
 
 }
 
@@ -38,3 +38,10 @@ section {
   height: 100%;
 }
 
+.card-body {
+    width: 100%;
+}
+
+.auth-logo {
+    width: 100%
+}
