@@ -54,7 +54,10 @@ function CarList() {
 
         let dataToSave;
         if (!response.data || response.data.length === 0) {
-          dataToSave = "Information for this car was not available";
+          dataToSave = JSON.stringify({ 
+            message: "Information for this car was not available",
+            results: []
+          });
         } else {
           dataToSave = JSON.stringify(response.data);
         }
