@@ -28,7 +28,7 @@ function Navbar() {
     <nav className="navbar navbar-expand-sm bg-body-tertiary">
   <div className="container-fluid">
     <Link className="navbar-brand" to="/homepage" >
-    <img src="/images/logo.png" alt="spektra-logo" className='navbar-logo'  />
+    <img src="/images/logo1.png" alt="spektra-logo" className='navbar-logo'  />
     </Link>
     <button className="navbar-toggler d-block d-sm-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
@@ -42,10 +42,13 @@ function Navbar() {
           <Link className="nav-link" to="/homepage" onClick={closeNavbar}>Home</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/search" onClick={closeNavbar}>Search Cars</Link>
+          <Link className="nav-link" to="/search" onClick={closeNavbar}>Search</Link>
         </li>
         <li className="nav-item">
           <Link className="nav-link" to="/dashboard" onClick={closeNavbar}>Dashboard</Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/" onClick={closeNavbar}>Contact Us</Link>
         </li>
         <li className="nav-item">
           <Link className="nav-link btn btn-link" onClick={handleLogout}>Logout</Link>

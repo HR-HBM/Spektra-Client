@@ -1,6 +1,72 @@
+.logo-container {
+  width: 100%;
+}
+
+.homepage-container {
+  align-items: center;
+  width: 100%;
+}
+
+.search-btn-div {
+  text-align: center !important;
+}
+
+.logo-container img {
+  width: 50%;
+}
+
+.p-5 {
+  padding: 0 !important;
+}
+
+.lead {
+  width: 70%;
+  text-align: center;
+  margin: 40px auto;
+}
+
+.content {
+  width: 100%;
+}
+
+.container {
+  /* padding: 0 30px; */
+}
+
+.greeting {
+
+  margin-top: 30px;
+  
+}
+
+.cta-description {
+  margin: 0 10px;
+  padding: 0 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.cta-section {
+  width: 100%;
+  padding: 1rem !important;
+}
+
 @media (min-width: 500px) {
   .page-content {
-    margin-left: 250px; /* same as sidebar width */
-    padding: 1rem;
+    margin-left: 180px; 
+    padding: 0;
+  
   }
+
+  .navbar-brand {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 499px) {
+  .logo-container img {
+    margin-top: 20px;
+}
+
+
 }

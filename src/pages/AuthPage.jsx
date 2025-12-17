@@ -76,16 +76,16 @@ function AuthPage({ setToken }) {
                                     <div className="col-md-6 col-lg-5 d-none d-md-block">
                                         <img src="/images/car1.jpg" alt="login form" className="img-fluid auth-page-image" style={{borderRadius: "1rem 0 0 1rem"}} />
                                     </div>
-                                    <div className="col-md-6 col-lg-7 d-flex align-items-center">
+                                    <div className="auth-container col-md-6 col-lg-7 d-flex align-items-center">
                                         <div className="card-body p-4 p-lg-5 text-black">
 
                                             <form action="" onSubmit={handleSubmit} className=''>
-                                                <div className="d-flex align-items-center mb-3 pb-1">
+                                                <div className="align-items-center mb-3 pb-1">
                                                     <img src="/images/logo1.png" alt='logo' className='auth-logo' />
                                                 </div>
 
-                                                <h4 className="fw-bold mb-2 text-uppercase">Access Automotive Insights</h4>
-                                                <p className="text-dark-50 mb-5">{isLogin ? 'Login to continue exploring' : 'Sign Up to begin your journey with Spektra.'}</p>
+                                                {/* <h4 className="fw-bold mb-2 text-uppercase">Access Automotive Insights</h4> */}
+                                                <h5 className="text-dark-50 login-signup-cta mb-5">{isLogin ? 'Login to continue exploring' : 'Sign Up to begin your journey with Spektra.'}</h5>
 
                                                 {!isLogin && (
                                                     
@@ -95,7 +95,7 @@ function AuthPage({ setToken }) {
                                                         value={username}
                                                         onChange={(e) => setUsername(e.target.value)}
                                                         required
-                                                        className="form-control form-control-lg" />
+                                                        className="authentication-form form-control form-control-lg" />
                                                     </div>
                                                 )}
 
@@ -105,7 +105,7 @@ function AuthPage({ setToken }) {
                                                     value={email}
                                                     onChange={(e) => setEmail(e.target.value)}
                                                     required
-                                                    className="form-control form-control-lg"
+                                                    className="authentication-form form-control form-control-lg"
                                                 />
                                                 </div> 
 
@@ -115,7 +115,7 @@ function AuthPage({ setToken }) {
                                                     value={password}
                                                     onChange={(e) => setPassword(e.target.value)}
                                                     required
-                                                    className="form-control form-control-lg"
+                                                    className="authentication-form form-control form-control-lg"
                                                     />
                                                 </div>
 
@@ -130,17 +130,19 @@ function AuthPage({ setToken }) {
                                                          value={confirmPassword}
                                                          onChange={(e) => setConfirmPassword(e.target.value)}
                                                          required
-                                                        className="form-control form-control-lg"
+                                                        className="authentication-form form-control form-control-lg"
                                                         />
                                                     </div>  
                                                 )}   
+                                                {error && <p className='error'>{error}</p>}
+
                                                 <div className="pt-1 mb-4">
-                                                    <button type='submit' data-mdb-button-init data-mdb-ripple-init className="btn btn-dark btn-lg btn-block">
+                                                    <button type='submit' data-mdb-button-init data-mdb-ripple-init className="auth-submit btn btn-dark btn-lg btn-block">
                                                         Submit
                                                     </button>
                                                 </div>
                                                 
-                                                {error && <p>{error}</p>}
+                                                
 
                                                 {!isLogin && (
                                                     <p className="login-signup mb-5 pb-lg-2" style={{color: "#393f8"}}>Already have an account? <button onClick={() => viewLogin(true)} type="button" className="btn btn-link">Login</button></p>
@@ -153,7 +155,7 @@ function AuthPage({ setToken }) {
                                             </form>
 
 
-                                            <div className="d-flex justify-content-center text-center mt-4 pt-1">
+                                            <div className="d-flex justify-content-center auth-options text-center mt-4 pt-1">
 
                                                 <a href="#!" className="text-dark"><i className="fab fa-facebook-f fa-lg"></i></a>
                                                 <a href="#!" className="text-dark"><i className="fab fa-twitter fa-lg mx-4 px-2"></i></a>

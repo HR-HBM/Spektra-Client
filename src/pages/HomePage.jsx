@@ -27,6 +27,8 @@ function HomePage() {
             },
         }
         );
+        console.log("API STATUS RESPONSE:", res.data);
+
         setStatus(res.data);
       } catch (err) {
         console.error("Error loading API call status:", err);
@@ -41,6 +43,42 @@ function HomePage() {
       <div className="page-content">
 
         <div className="homepage-container">
+          {/* <div className="logo-container">
+            <img src="/images/logo1.png" alt="spektra-logo" />
+
+          </div> */}
+
+
+          <div className="profile-intro p-5 rounded-3">
+            {status && (
+              <h2 className="greeting">Hi {status.username} 👋</h2>
+            )}
+    
+              <p className="lead">Spektra lets you explore specifications across a wide spectrum of cars, helping you understand how cars evolve across generations and configurations.</p>
+            
+          </div>
+
+          <section className="cta-section bg-primary text-white py-5">
+            <div className="container">
+              <div className="row align-items-center">
+                <div className="col-lg-8 mb-4 mb-lg-0">
+                  {/* <h2 className="mb-3">Explore Car Specs Instantly</h2> */}
+                  <p className="lead mb-0 cta-description">Search by make, model, and year to instantly access detailed specifications across all available trims.</p>
+                </div>
+                <div className="search-btn-div col-lg-4 text-lg-end">
+                  <Link className="search-btn btn btn-light btn-lg px-4 py-2 rounded-pill" to="/search">Search for a Car
+                  <i className="bi bi-arrow-right ms-2"></i>
+                  </Link>
+                  
+                  {/* <a href="#" className="btn btn-light btn-lg px-4 py-2 rounded-pill">
+                    Sign Up Now
+                    <i className="bi bi-arrow-right ms-2"></i>
+                  </a> */}
+                </div>
+              </div>
+            </div>
+          </section>
+
       <h1>Welcome to the Car Lookup App</h1>
 
       <p>This app lets you search for detailed technical specifications.</p>
