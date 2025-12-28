@@ -9,7 +9,7 @@
 
 @media (min-width: 500px) {
   .navbar {
-    width: 180px;
+    width: 220px;
     height: 100vh;
     position: fixed;
     left: 0;
@@ -41,7 +41,7 @@
 
   .navbar-nav {
     flex-direction: column !important;
-    width: 100%;
+    /* width: 98%; */
     text-align: left;
   }
 
@@ -61,7 +61,7 @@
 
 @media (max-width: 499px) {
   .navbar {
-    width: 100%;
+    max-width: 95vw;
     height: auto;
     flex-direction: row !important;
   }
@@ -76,12 +76,27 @@
 
   .navbar-toggler {
     display: block !important;
-    margin-right: 20px;
-  }
+    }
 
   .navbar .container-fluid {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    max-width: 90vw;
+    margin: 0;
   }
+
+  .nav-item {
+    width: 90vw;
+  }
+
+  .navbar-nav {
+    max-width: 90vw;
+
+  }
+
+  .navbar-collapse {
+    max-width: 85vw;
+  }
+
 }

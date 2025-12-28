@@ -48,7 +48,7 @@ function Navbar() {
           <Link className="nav-link" to="/dashboard" onClick={closeNavbar}>Dashboard</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/" onClick={closeNavbar}>Contact Us</Link>
+          <Link className="nav-link" to="/contact" onClick={closeNavbar}>Contact Us</Link>
         </li>
         <li className="nav-item">
           <Link className="nav-link btn btn-link" onClick={handleLogout}>Logout</Link>

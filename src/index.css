@@ -34,8 +34,9 @@ body {
   display: flex;
   flex-direction: column;
   /* place-items: center; */
-  min-width: 320px;
+  width: fit-content;
   min-height: 100vh;
+
 }
 
 h1 {

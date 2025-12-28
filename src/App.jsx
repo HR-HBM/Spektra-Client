@@ -12,9 +12,14 @@ import SearchPage from './pages/SearchPage'
 import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import useToken from './useToken'
+import Contact from "./pages/Contact";
+// import ContactModal from './components/ContactModal';
+
+
 
 function AppContent() {
-
+  
+  // const [showContact, setShowContact] = useState(false);
   const location = useLocation()
   const hideNavBarPaths = ['/', '/auth']
   const { token, setToken } = useToken()
@@ -50,9 +55,13 @@ function AppContent() {
           <Route path="/search-results/:year/:make/:model" element={<CarList />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/car-details/:id" element={<CarDetails />} />
+          <Route path="/contact" element={<Contact />} />
+
           <Route path="/homepage" element={<HomePage />}></Route>
         </Routes>
-        </div>
+        </div> 
+        {/* <ContactModal isOpen={showContact} onClose={() => setShowContact(false)}
+/> */}
         <Footer />
 
       </div>

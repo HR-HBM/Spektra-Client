@@ -14,7 +14,7 @@ function LandingPage() {
 
         if (carouselElement) {
             new bootstrap.Carousel(carouselElement, {
-            interval: 3000,   // 3 seconds
+            interval: 6000,   // 3 seconds
             ride: "carousel",
             pause: false,
             wrap: true
@@ -29,6 +29,9 @@ function LandingPage() {
                 <img className="d-block mx-auto mb-4 logo" src="/images/logo1.png" alt="" width="72" height="57" /> 
                 <h1 className="fs-1 fs-md-2 fs-sm-3 display-4 text-body-emphasis">Discover Car Specs. Instantly</h1> 
                 <div className="col-lg-6 mx-auto"> 
+                    <div className="animated-text-container">
+                <TypewriterEffect />
+            </div>
                     <div className="d-grid gap-2 d-sm-flex justify-content-sm-center"> 
                         <div className="get-started">
                             <Link to="/auth" className="btn btn-outline-primary">
@@ -112,9 +115,7 @@ function LandingPage() {
                 </Link>
             </div>
                                
-            <div className="animated-text-container">
-                <TypewriterEffect />
-            </div>
+            
                       
         </div>
     )

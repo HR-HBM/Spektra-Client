@@ -40,7 +40,7 @@
 }
 
 .cta-description {
-  margin: 0 10px;
+  margin: 0 auto;
   padding: 0 20px;
   width: 100%;
   text-align: center;
@@ -49,11 +49,170 @@
 .cta-section {
   width: 100%;
   padding: 1rem !important;
+} 
+
+.card-sleek {
+  margin: 30px 0;
 }
+
+
+
+
+
+.gradient-section {
+            background: linear-gradient(-45deg, #6026ba 0%, #351567 35%, #212529);
+            background-size: 400% 400%;
+            animation: gradient 15s linear infinite;
+            padding: 70px 0;
+        }
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        .card.statistics-card {
+            position: relative;
+            background: none;
+            border: none;
+            padding: 2rem;
+        }
+        .card.statistics-card i {
+            position: absolute;
+            font-size: 10rem;
+            top: -3%;
+            opacity: 0.2;
+        }
+        @media only screen and (max-width: 921px) {
+            .card.statistics-card i {
+                font-size: 5rem;
+            }
+        }
+        .card.statistics-card i.fa-users {
+            color: #dedede;
+        }
+        .card.statistics-card i.fa-font {
+            color: #df151b;
+        }
+        .card.statistics-card i.fa-link {
+            color: #409fdc;
+        }
+        .card.statistics-card i.fa-coffee {
+            color: #301d15;
+        }
+        .card.statistics-card .info {
+            margin-left: 20%;
+            text-align: right;
+        }
+        .card.statistics-card .info span {
+            color: #fff;
+            font-weight: bold;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+        .card.statistics-card .info div {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ffae00;
+        }
+        .section-title {
+            padding-bottom: 40px;
+        }
+        .section-title h2 {
+            font-size: 14px;
+            font-weight: 500;
+            padding: 0;
+            line-height: 1px;
+            margin: 0 0 5px 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #aaaaaa;
+            font-family: "Poppins", sans-serif;
+        }
+        /* .section-title h2:after {
+            content: "";
+            width: 120px;
+            height: 1px;
+            display: inline-block;
+            background: #fff;
+            margin: 4px 10px;
+        } */
+        .section-title h1,
+        .section-title p {
+            margin: 0;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-family: "Poppins", sans-serif;
+            color: #3c1874;
+            font-size: 2rem;
+        }
+        .section-title h1 strong,
+        .section-title p strong {
+            color: #dc8615;
+        }
+
+
+
+
+
+
+
+.card-sleek {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.card-sleek:hover {
+    transform: translateY(-5px);
+}
+
+.card-sleek .card-body {
+    padding: 2rem;
+}
+
+.card-sleek .card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.card-sleek .card-text {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.card-sleek .btn-sleek {
+    background-color: #fff;
+    color: #667eea;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.card-sleek .btn-sleek:hover {
+    background-color: #667eea;
+    color: #fff;
+}
+
+
+
+
+
+
+
+
+
 
 @media (min-width: 500px) {
   .page-content {
-    margin-left: 180px; 
+    margin-left: 220px; 
     padding: 0;
   
   }
