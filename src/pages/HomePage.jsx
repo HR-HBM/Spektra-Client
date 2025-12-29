@@ -279,7 +279,7 @@ useEffect(() => {
   <div className="modal-dialog modal-dialog-centered">
     <div className="modal-content">
       <div className="modal-header">
-        <img src="./images/logo1.png" className="img-fluid contact-modal-logo" style={{height: 50}} alt="logo" />
+        <img src="/images/logo1.png" className="img-fluid contact-modal-logo" style={{height: 50}} alt="logo" />
         <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div className="modal-body">
